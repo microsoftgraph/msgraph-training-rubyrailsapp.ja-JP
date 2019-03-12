@@ -1,0 +1,13 @@
+### YamlMime:Yaml
+ms.openlocfilehash: 5812f3b4670b326bfe96fe2c2520b546525d462f
+ms.sourcegitcommit: 0a09ce80c160c2435146e5aa48928cad29d752ad
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "30547523"
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>

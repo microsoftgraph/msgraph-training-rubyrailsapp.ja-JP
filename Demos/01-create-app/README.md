@@ -1,0 +1,3 @@
+# <a name="completed-module-create-a-ruby-on-rails-web-app"></a>完了モジュール: Ruby on Rails web app の作成
+
+このディレクトリにあるプロジェクトのバージョンは、 [「Ruby on Rails web app の作成](https://docs.microsoft.com/graph/training/ruby-tutorial?tutorial-step=1)」に記載されているチュートリアルの完了を反映しています。 このバージョンのプロジェクトを使用する場合は、「[ポータルでアプリを登録する」](https://docs.microsoft.com/graph/training/ruby-tutorial?tutorial-step=2)を開始して、チュートリアルの残りの部分を完了する必要があります。

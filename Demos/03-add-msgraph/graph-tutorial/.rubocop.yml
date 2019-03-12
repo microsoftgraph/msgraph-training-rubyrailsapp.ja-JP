@@ -1,0 +1,12 @@
+### YamlMime:Yaml
+ms.openlocfilehash: 4948a90acdd07aba52cacebcbfc061eb20febc41
+ms.sourcegitcommit: 0a09ce80c160c2435146e5aa48928cad29d752ad
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "30547656"
+inherit_from: .rubocop_todo.yml
+AllCops:
+  Exclude:
+  - bin/**
+  - db/**/**
