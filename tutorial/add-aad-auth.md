@@ -13,7 +13,7 @@ ENV['AZURE_SCOPES'] = 'openid profile email offline_access user.read calendars.r
 を`YOUR_APP_ID_HERE`アプリケーション登録ポータルからのアプリケーション ID に置き換え、生成し`YOUR_APP_SECRET_HERE`たパスワードに置き換えます。
 
 > [!IMPORTANT]
-> git などのソース管理を使用している場合は、アプリ ID とパスワードを誤っ`oauth_environment_variables.rb`てリークしないように、ソース管理からファイルを除外することをお勧めします。
+> Git などのソース管理を使用している場合は、アプリ ID とパスワードを誤っ`oauth_environment_variables.rb`てリークしないように、ソース管理からファイルを除外することをお勧めします。
 
 このファイルが存在する場合、このファイルを読み込むコードを追加します。 `./config/environment.rb`ファイルを開き、行の`Rails.application.initialize!`前に次のコードを追加します。
 
@@ -243,7 +243,7 @@ def set_user
 end
 ```
 
-このメソッドは、ナビゲーションバーでユーザーの情報`application.html.erb`を表示するためにレイアウトで使用される変数を設定します。 ここで追加することで、単一のコントローラーアクションごとにこのコードを追加する必要はありません。 ただし、これは、最適化されてい`AuthController`ないののアクションにも実行されます。 before アクションをスキップするに`AuthController`は、 `./app/controllers/auth_controller.rb`のクラスに次のコードを追加します。
+このメソッドは、ナビゲーションバーでユーザーの情報`application.html.erb`を表示するためにレイアウトで使用される変数を設定します。 ここで追加することで、単一のコントローラーアクションごとにこのコードを追加する必要はありません。 ただし、これは、最適化されてい`AuthController`ないののアクションにも実行されます。 Before アクションをスキップするに`AuthController`は、 `./app/controllers/auth_controller.rb`のクラスに次のコードを追加します。
 
 ```ruby
 skip_before_action :set_user

@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-この演習では、 [Ruby on Rails](https://rubyonrails.org/)を使用して web アプリを構築します。 Rails がまだインストールされていない場合は、コマンドラインインターフェイス (CLI) から次のコマンドを使用してインストールできます。
+この演習では、 [Ruby On Rails](https://rubyonrails.org/)を使用して web アプリを構築します。 Rails がまだインストールされていない場合は、コマンドラインインターフェイス (CLI) から次のコマンドを使用してインストールできます。
 
 ```Shell
 gem install rails
@@ -12,13 +12,13 @@ CLI を開き、ファイルを作成する権限があるディレクトリに�
 rails new graph-tutorial
 ```
 
-rails アプリと呼ばれる`graph-tutorial`新しいディレクトリを作成し、スキャフォールディングを作成します。 この新しいディレクトリに移動し、次のコマンドを入力してローカル web サーバーを開始します。
+Rails アプリと呼ばれる`graph-tutorial`新しいディレクトリを作成し、スキャフォールディングを作成します。 この新しいディレクトリに移動し、次のコマンドを入力してローカル web サーバーを開始します。
 
 ```Shell
 rails server
 ```
 
-ブラウザーを開き、`http://localhost:3000` に移動します。 すべてが動作している場合は、"yay!" と表示されます。 レールを使用しています。 メッセージ。 このメッセージが表示されない場合は、 [Rails の入門ガイド](http://guides.rubyonrails.org/)を確認してください。
+ブラウザーを開き、`http://localhost:3000` に移動します。 すべてが動作している場合は、"Yay!" と表示されます。 レールを使用しています。 メッセージ。 このメッセージが表示されない場合は、 [Rails の入門ガイド](http://guides.rubyonrails.org/)を確認してください。
 
 に進む前に、後で使用する gem をいくつかインストールします。
 
