@@ -1,23 +1,23 @@
-# <a name="readme"></a><span data-ttu-id="de045-101">ノート</span><span class="sxs-lookup"><span data-stu-id="de045-101">README</span></span>
+# <a name="readme"></a><span data-ttu-id="41701-101">ノート</span><span class="sxs-lookup"><span data-stu-id="41701-101">README</span></span>
 
-<span data-ttu-id="de045-102">この README は通常、アプリケーションを起動して実行するために必要な手順を文書化します。</span><span class="sxs-lookup"><span data-stu-id="de045-102">This README would normally document whatever steps are necessary to get the application up and running.</span></span>
+<span data-ttu-id="41701-102">この README は通常、アプリケーションを起動して実行するために必要な手順を文書化します。</span><span class="sxs-lookup"><span data-stu-id="41701-102">This README would normally document whatever steps are necessary to get the application up and running.</span></span>
 
-<span data-ttu-id="de045-103">対象となる可能性のある事柄:</span><span class="sxs-lookup"><span data-stu-id="de045-103">Things you may want to cover:</span></span>
+<span data-ttu-id="41701-103">対象となる可能性のある事柄:</span><span class="sxs-lookup"><span data-stu-id="41701-103">Things you may want to cover:</span></span>
 
-* <span data-ttu-id="de045-104">Ruby バージョン</span><span class="sxs-lookup"><span data-stu-id="de045-104">Ruby version</span></span>
+* <span data-ttu-id="41701-104">Ruby バージョン</span><span class="sxs-lookup"><span data-stu-id="41701-104">Ruby version</span></span>
 
-* <span data-ttu-id="de045-105">システムの依存関係</span><span class="sxs-lookup"><span data-stu-id="de045-105">System dependencies</span></span>
+* <span data-ttu-id="41701-105">システムの依存関係</span><span class="sxs-lookup"><span data-stu-id="41701-105">System dependencies</span></span>
 
-* <span data-ttu-id="de045-106">構成</span><span class="sxs-lookup"><span data-stu-id="de045-106">Configuration</span></span>
+* <span data-ttu-id="41701-106">構成</span><span class="sxs-lookup"><span data-stu-id="41701-106">Configuration</span></span>
 
-* <span data-ttu-id="de045-107">データベースの作成</span><span class="sxs-lookup"><span data-stu-id="de045-107">Database creation</span></span>
+* <span data-ttu-id="41701-107">データベースの作成</span><span class="sxs-lookup"><span data-stu-id="41701-107">Database creation</span></span>
 
-* <span data-ttu-id="de045-108">データベースの初期化</span><span class="sxs-lookup"><span data-stu-id="de045-108">Database initialization</span></span>
+* <span data-ttu-id="41701-108">データベースの初期化</span><span class="sxs-lookup"><span data-stu-id="41701-108">Database initialization</span></span>
 
-* <span data-ttu-id="de045-109">テストスイートを実行する方法</span><span class="sxs-lookup"><span data-stu-id="de045-109">How to run the test suite</span></span>
+* <span data-ttu-id="41701-109">テストスイートを実行する方法</span><span class="sxs-lookup"><span data-stu-id="41701-109">How to run the test suite</span></span>
 
-* <span data-ttu-id="de045-110">サービス (ジョブキュー、キャッシュサーバー、検索エンジンなど)</span><span class="sxs-lookup"><span data-stu-id="de045-110">Services (job queues, cache servers, search engines, etc.)</span></span>
+* <span data-ttu-id="41701-110">サービス (ジョブキュー、キャッシュサーバー、検索エンジンなど)</span><span class="sxs-lookup"><span data-stu-id="41701-110">Services (job queues, cache servers, search engines, etc.)</span></span>
 
-* <span data-ttu-id="de045-111">展開手順</span><span class="sxs-lookup"><span data-stu-id="de045-111">Deployment instructions</span></span>
+* <span data-ttu-id="41701-111">展開手順</span><span class="sxs-lookup"><span data-stu-id="41701-111">Deployment instructions</span></span>
 
-* <span data-ttu-id="de045-112">...</span><span class="sxs-lookup"><span data-stu-id="de045-112"></span></span>
+* <span data-ttu-id="41701-112">...</span><span class="sxs-lookup"><span data-stu-id="41701-112"></span></span>

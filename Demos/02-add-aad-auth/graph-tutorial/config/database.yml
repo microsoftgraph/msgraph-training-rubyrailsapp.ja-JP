@@ -1,10 +1,10 @@
 ### YamlMime:Yaml
 ms.openlocfilehash: 233e814552b4d773381e002f325fbe3eaaa9e591
-ms.sourcegitcommit: 0a09ce80c160c2435146e5aa48928cad29d752ad
+ms.sourcegitcommit: a5f49f50d5a19def8ee79289670482bc90b5f0a7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "30547278"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "33556631"
 default:
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
