@@ -72,7 +72,7 @@ Rails.application.config.session_store :active_record_store, key: '_graph_app_se
 
 ## <a name="design-the-app"></a>アプリを設計する
 
-最初に、アプリのグローバルレイアウトを更新します。 を`./app/views/layouts/application.html.erb`開き、その内容を次のように置き換えます。
+最初に、アプリのグローバルレイアウトを更新します。 `./app/views/layouts/application.html.erb` を開き、ファイルの内容を次のように書き換えます。
 
 ```html
 <!DOCTYPE html>
@@ -162,9 +162,9 @@ Rails.application.config.session_store :active_record_store, key: '_graph_app_se
 </html>
 ```
 
-このコードでは、単純なスタイル設定[](https://fontawesome.com/)のために[ブートストラップ](http://getbootstrap.com/)が追加されています。 また、ナビゲーションバーのあるグローバルレイアウトを定義します。
+このコードでは、シンプルなスタイル設定ができる [Bootstrap](http://getbootstrap.com/) と、シンプルなアイコンを使うための [Font Awesome](https://fontawesome.com/) を追加しています。 また、ナビゲーションセクション要素でグローバルレイアウトを定義しています。
 
-を開き`./app/assets/stylesheets/application.css` 、ファイルの末尾に次のように追加します。
+`./app/assets/stylesheets/application.css` を開き、ファイルの末尾に以下の内容を追加します。
 
 ```css
 body {
