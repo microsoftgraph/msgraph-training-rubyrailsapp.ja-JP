@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-この演習では、 [Ruby On Rails](https://rubyonrails.org/)を使用して web アプリを構築します。 Rails がまだインストールされていない場合は、コマンドラインインターフェイス (CLI) から次のコマンドを使用してインストールできます。
+この演習では、 [Ruby on Rails](https://rubyonrails.org/)を使用して web アプリを構築します。 Rails がまだインストールされていない場合は、コマンドラインインターフェイス (CLI) から次のコマンドを使用してインストールできます。
 
 ```Shell
 gem install rails
@@ -18,9 +18,9 @@ Rails アプリと呼ばれる`graph-tutorial`新しいディレクトリを作�
 rails server
 ```
 
-ブラウザーを開き、`http://localhost:3000` に移動します。 すべてが動作している場合は、"Yay!" と表示されます。 レールを使用しています。 メッセージ。 このメッセージが表示されない場合は、 [Rails の入門ガイド](http://guides.rubyonrails.org/)を確認してください。
+ブラウザーを開いて `http://localhost:3000` にアクセスします。 正常に動作している場合は "Yay! You're on Rails!" というメッセージが表示されます。このメッセージが表示されない場合は [Rails ガイド](https://railsguides.jp/getting_started.html)を確認してください。
 
-に進む前に、後で使用する gem をいくつかインストールします。
+チュートリアルを進める前に、後ほど使用する gem をいくつかインストールします。
 
 - [omniauth-](https://github.com/omniauth/omniauth-oauth2)サインインおよび OAuth トークンフローを処理するための oauth2。
 - Microsoft Graph に電話をかけるための[httparty](https://github.com/jnunemaker/httparty) 。
