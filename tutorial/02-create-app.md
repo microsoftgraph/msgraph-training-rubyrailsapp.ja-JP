@@ -22,10 +22,10 @@ rails server
 
 に進む前に、後で使用する gem をいくつかインストールします。
 
-- [omniauth-](https://github.com/omniauth/omniauth-oauth2)サインインおよび OAuth トークンフローを処理するための oauth2。
-- Microsoft Graph に電話をかけるための[httparty](https://github.com/jnunemaker/httparty) 。
-- 電子メールの HTML 本文を処理するための[noて giri](https://github.com/sparklemotion/nokogiri) 。
-- [session_store](https://github.com/rails/activerecord-session_store)は、データベースにセッションを格納するためのものです。
+- サインインおよび OAuth トークンフローを処理するための [omniauth-oauth2](https://github.com/omniauth/omniauth-oauth2)。
+- Microsoft Graph を呼び出すための [httparty](https://github.com/jnunemaker/httparty) 。
+- 電子メールの HTML 本文を処理するための [nokogiri](https://github.com/sparklemotion/nokogiri) 。
+- データベースにセッションを格納するための [session_store](https://github.com/rails/activerecord-session_store)。
 
 CLI で次のコマンドを実行します。
 
@@ -37,7 +37,7 @@ bundle add activerecord-session_store
 rails generate active_record:session_migration
 ```
 
-最後のコマンドでは、次のような出力が生成されます。
+最後のコマンドでは、次のような出力が表示されます。
 
 ```Shell
 create  db/migrate/20180618172216_add_sessions_table.rb
