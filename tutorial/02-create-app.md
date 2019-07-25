@@ -64,7 +64,7 @@ class AddSessionsTable < ActiveRecord::Migration[5.2]
 rake db:migrate
 ```
 
-最後に、新しいセッションストアを使用するように Rails を構成します。 ディレクトリ内にという`session_store.rb`新しいファイルを作成し、次のコードを追加します。 `./config/initializers`
+最後に、新しいセッションストアを使用するように Rails を構成します。 `./config/initializers` ディレクトリ内に `session_store.rb` という名前でファイルを新規作成し、次のコードを追加します。
 
 ```ruby
 Rails.application.config.session_store :active_record_store, key: '_graph_app_session'
