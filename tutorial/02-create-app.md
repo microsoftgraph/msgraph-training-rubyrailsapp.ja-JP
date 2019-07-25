@@ -178,13 +178,13 @@ body {
 }
 ```
 
-次に、既定のページを新しいページに置き換えます。 次のコマンドを使用して、ホームページコントローラーを生成します。
+次に、デフォルトページを新しいページに置き換えます。 以下のコマンドでホームページコントローラーを生成します。
 
 ```Shell
 rails generate controller Home index
 ```
 
-その後、 `index`アプリの既定`Home`のページとして、コントローラーのアクションを構成します。 を`./config/routes.rb`開いて、コンテンツを次のように置き換えます。
+その後、`Home` コントローラーの `index` アクションがアプリのデフォルトページとなるように設定します。`./config/routes.rb` を開き、以下の内容に書き換えます。
 
 ```ruby
 Rails.application.routes.draw do
@@ -196,7 +196,7 @@ Rails.application.routes.draw do
 end
 ```
 
-`./app/view/home/index.html.erb`ファイルを開き、その内容を次のように置き換えます。
+`./app/view/home/index.html.erb` ファイルを開き、以下の内容に書き換えます。
 
 ```html
 <div class="jumbotron">
