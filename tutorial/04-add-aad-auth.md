@@ -1,8 +1,8 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-この演習では、Azure AD での認証をサポートするために、前の手順で作成したアプリケーションを拡張します。 これは、Microsoft Graph を呼び出すために必要な OAuth アクセストークンを取得するために必要です。 この手順では、omniauth と[oauth2](https://github.com/omniauth/omniauth-oauth2)の gem をアプリケーションに統合し、カスタム omniauth 戦略を作成します。
+この演習では、Azure AD での認証をサポートするために、前の手順で作成したアプリケーションを拡張します。 これは Microsoft Graph を呼び出すために必要な OAuth アクセストークンを取得するために必要です。 この手順では [omniauth-oauth2](https://github.com/omniauth/omniauth-oauth2) をアプリケーションに統合し、カスタム OmniAuth ストラテジーを作成します。
 
-最初に、アプリ ID とシークレットを保持する個別のファイルを作成します。 `./config`フォルダーにという`oauth_environment_variables.rb`新しいファイルを作成し、次のコードを追加します。
+最初にアプリケーション ID とクライアントシークレットを保持する個別のファイルを作成します。`./config` ディレクトリに `oauth_environment_variables.rb` というファイルを新規作成し、次のコードを追加します。
 
 ```ruby
 ENV['AZURE_APP_ID'] = 'YOUR_APP_ID_HERE'
@@ -10,12 +10,12 @@ ENV['AZURE_APP_SECRET'] = 'YOUR_APP_SECRET_HERE'
 ENV['AZURE_SCOPES'] = 'openid profile email offline_access user.read calendars.read'
 ```
 
-を`YOUR_APP_ID_HERE`アプリケーション登録ポータルからのアプリケーション ID に置き換え、生成し`YOUR_APP_SECRET_HERE`たパスワードに置き換えます。
+`YOUR_APP_ID_HERE` を [アプリの登録] に記載されているアプリケーション ID に書き換え、生成したクライアントシークレットで `YOUR_APP_SECRET_HERE` を置き換えます。
 
 > [!IMPORTANT]
-> Git などのソース管理を使用している場合は、アプリ ID とパスワードを誤っ`oauth_environment_variables.rb`てリークしないように、ソース管理からファイルを除外することをお勧めします。
+> Git などのソース管理ツールを使用している場合は、アプリケーション ID とクライアントシークレットを誤って漏洩しないように、ソース管理ツールから `oauth_environment_variables.rb` ファイルを除外することをお勧めします。
 
-このファイルが存在する場合、このファイルを読み込むコードを追加します。 `./config/environment.rb`ファイルを開き、行の`Rails.application.initialize!`前に次のコードを追加します。
+このファイルが存在する場合、このファイルを読み込むコードを追加します。`./config/environment.rb` ファイルを開き、`Rails.application.initialize!` と記載されている行の前に以下のコードを追加します。
 
 ```ruby
 # Load OAuth settings
@@ -23,11 +23,11 @@ oauth_environment_variables = File.join(Rails.root, 'config', 'oauth_environment
 load(oauth_environment_variables) if File.exist?(oauth_environment_variables)
 ```
 
-## <a name="setup-omniauth"></a>セットアップ OmniAuth
+## <a name="setup-omniauth"></a>OmniAuth のセットアップ
 
-既に gem が`omniauth-oauth2`インストールされていますが、Azure OAuth エンドポイントを使用できるようにするためには、 [OAuth2 戦略を作成](https://github.com/omniauth/omniauth-oauth2#creating-an-oauth2-strategy)する必要があります。 これは、Azure プロバイダーに OAuth 要求を作成するためのパラメーターを定義する Ruby クラスです。
+既に `omniauth-oauth2` はインストールされていますが、Azure OAuth エンドポイントと連携させるには、 [OAuth2 ストラテジーを作成する](https://github.com/omniauth/omniauth-oauth2#creating-an-oauth2-strategy)必要があります。これは、Azure プロバイダーに OAuth リクエストを送信するためのパラメーターを定義する Ruby クラスです。
 
-`./lib`フォルダーにという`microsoft_graph_auth.rb`新しいファイルを作成し、次のコードを追加します。
+`./lib` ディレクトリーに `microsoft_graph_auth.rb` というファイルを新規作成し、次のコードを追加します。
 
 ```ruby
 require 'omniauth-oauth2'
@@ -84,15 +84,15 @@ module OmniAuth
 end
 ```
 
-このコードの内容を確認してください。
+このコードは以下のことをしています。
 
-- は、 `client_options` Azure v2 エンドポイントを指定するように設定します。
-- 承認フェーズで`scope`パラメーターを送信する必要があることを指定します。
-- ユーザーの`id`プロパティをユーザーの一意の ID としてマップします。
-- アクセストークンを使用して、Microsoft Graph からユーザーのプロファイルを取得し、 `raw_info`ハッシュを入力します。
-- これは、コールバック URL を上書きして、アプリ登録ポータルで登録されているコールバックと一致するようにします。
+- `client_options` に Azure v2 エンドポイントを指定するように設定します。
+- 承認フェーズで `scope` パラメーターを送信する必要があることを指定します。
+- ユーザーの `id` プロパティをユーザーの一意の ID としてマップします。
+- アクセストークンを使用して Microsoft Graph からユーザーのプロファイルを取得し、ハッシュ `raw_info` に書き込みます。
+- [アプリの登録] に登録されているコールバックと一致するように、コールバック URL を上書きします。
 
-戦略を定義したので、これを使用するように OmniAuth を構成する必要があります。 `./config/initializers`フォルダーにという`omniauth_graph.rb`新しいファイルを作成し、次のコードを追加します。
+ストラテジーを定義したので、これを使用するように OmniAuth を構成する必要があります。`./config/initializers` ディレクトリに `omniauth_graph.rb` というファイルを新規作成し、次のコードを追加します。
 
 ```ruby
 require 'microsoft_graph_auth'
@@ -105,7 +105,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 end
 ```
 
-このコードは、アプリが開始するときに実行されます。 このメソッドは、で`microsoft_graph_auth` `oauth_environment_variables.rb`設定された環境変数で構成されたプロバイダーを使用して OmniAuth ミドルウェアを読み込みます。
+このコードはアプリが起動するときに実行されます。`oauth_environment_variables.rb` に設定された環境変数で構成された `microsoft_graph_auth` プロバイダーを使用して OmniAuth ミドルウェアを読み込みます。
 
 ## <a name="implement-sign-in"></a>サインインの実装
 
