@@ -296,18 +296,18 @@ get 'auth/signout'
 
 ## <a name="refreshing-tokens"></a>トークンの更新
 
-OmniAuth によって生成されたハッシュをよく見ると、ハッシュには`token`と`refresh_token`の2つのトークンがあることがわかります。 の`token`値は、API 呼び出しの`Authorization`ヘッダーで送信されるアクセストークンです。 これは、アプリがユーザーに代わって Microsoft Graph にアクセスできるようにするトークンです。
+OmniAuth によって生成されたハッシュ値をよく見ると、ハッシュ値には `token` と `refresh_token` の 2 つのトークンがあることが分かります。 `token` の値は、API 呼び出し時に `Authorization` ヘッダーで送信されるアクセストークンです。これは、アプリがユーザーに代わって Microsoft Graph にアクセスできるようにするトークンです。
 
-ただし、このトークンは存続期間が短くなります。 トークンが発行された後、有効期限が切れる時間になります。 この`refresh_token`値が有効になります。 更新トークンを使用すると、ユーザーが再度サインインする必要なく、新しいアクセストークンをアプリで要求できます。 トークンの更新を実装するために、トークン管理コードを更新します。
+ただし、このトークンは有効期限が短いです。トークン発行後、1 時間が有効期限になります。ここで `refresh_token` の有用性が分かります。refresh_token を使用すると、ユーザーは再度サインインする必要なく、アプリが新しいアクセストークンを要求できます。トークンのリフレッシュを実装するために、トークン管理コードを更新します。
 
-を`./app/controllers/application_controller.rb`開き、先頭に`require`次のステートメントを追加します。
+`./app/controllers/application_controller.rb` を開き、先頭に以下のような `require` ステートメントを追加します。
 
 ```ruby
 require 'microsoft_graph_auth'
 require 'oauth2'
 ```
 
-その後、次のメソッドを`ApplicationController`クラスに追加します。
+その後、次のメソッドを `ApplicationController` クラスに追加します。
 
 ```ruby
 def refresh_tokens(token_hash)
@@ -331,9 +331,9 @@ def refresh_tokens(token_hash)
 end
 ```
 
-このメソッドは、 [oauth2](https://github.com/oauth-xx/oauth2) gem ( `omniauth-oauth2` gem の依存関係) を使用してトークンを更新し、セッションを更新します。
+このメソッドは、[oauth2](https://github.com/oauth-xx/oauth2) （`omniauth-oauth2` に依存）を使用してトークンをリフレッシュし、セッションを更新します。
 
-では、このメソッドを使用します。 そのためには、 `access_token` `ApplicationController`クラスのアクセサーを少し賢いものにしてください。 セッションからトークンを返すだけでなく、最初に有効期限が近づいているかどうかを確認します。 その場合は、トークンを返す前に更新されます。 現在`access_token`のメソッドを次のように置き換えます。
+では、このメソッドを使用します。 そのためには、`ApplicationController` クラスの `access_token` アクセサーを少し賢いものにしてください。セッションからトークンを返すだけでなく、最初に有効期限が近づいているかどうかを確認します。その場合は、トークンを返す前にリフレッシュされます。現在の `access_token` メソッドを次のように書き換えます。
 
 ```ruby
 def access_token
