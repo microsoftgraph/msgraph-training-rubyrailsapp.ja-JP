@@ -123,9 +123,9 @@ def signin
 end
 ```
 
-このメソッドはすべて、カスタム戦略を呼び出すことが期待される OmniAuth のルートにリダイレクトされます。
+このメソッドは、OmniAuth がカスタムストラテジーを呼び出すことを期待しているルートにリダイレクトされます。
 
-次に、コールバックメソッドを`AuthController`クラスに追加します。 このメソッドは、OAuth フローの完了後に OmniAuth ミドルウェアによって呼び出されます。
+次に callback メソッドを `AuthController` クラスに追加します。このメソッドは、OAuth フローの完了後に OmniAuth ミドルウェアによって呼び出されます。
 
 ```ruby
 def callback
@@ -137,7 +137,7 @@ def callback
 end
 ```
 
-ここでは、OmniAuth によって提供されるハッシュをレンダリングします。 これを使用して、サインインが機能していることを確認してから、に進みます。 テストを開始する前に、に`./config/routes.rb`ルートを追加する必要があります。
+ここでは OmniAuth によって提供されるハッシュ値をレンダリングします。次に進む前に、これを使用してサインインが機能していることを確認します。テストを開始する前に、`./config/routes.rb` にルートを追加する必要があります。
 
 ```ruby
 get 'auth/signin'
@@ -146,19 +146,19 @@ get 'auth/signin'
 match '/auth/:provider/callback', to: 'auth#callback', via: [:get, :post]
 ```
 
-`signin`アクションを使用するようにビューを更新します。 開き`./app/views/layouts/application.html.erb`ます。 行`<a href="#" class="nav-link">Sign In</a>`を次のように置き換えます。
+`signin` アクションを使用するようにビューを更新します。`./app/views/layouts/application.html.erb` を開きます。`<a href="#" class="nav-link">Sign In</a>` と書かれている行を次のように書き換えます。
 
 ```html
 <%= link_to "Sign In", {:controller => :auth, :action => :signin}, :class => "nav-link" %>
 ```
 
-`./app/views/home/index.html.erb`ファイルを開き、 `<a href="#" class="btn btn-primary btn-large">Click here to sign in</a>`行を次のように置き換えます。
+`./app/views/home/index.html.erb` ファイルを開き、`<a href="#" class="btn btn-primary btn-large">Click here to sign in</a>` と書かれている行を次のように書き換えます。
 
 ```html
 <%= link_to "Click here to sign in", {:controller => :auth, :action => :signin}, :class => "btn btn-primary btn-large" %>
 ```
 
-サーバーを起動し、を`https://localhost:3000`参照します。 [サインイン] ボタンをクリックすると、に`https://login.microsoftonline.com`リダイレクトされます。 Microsoft アカウントを使用してログインし、要求されたアクセス許可に同意します。 ブラウザーがアプリにリダイレクトし、OmniAuth によって生成されたハッシュが表示されます。
+サーバーを起動し、`https://localhost:3000` を参照します。[サインイン] ボタンをクリックすると、`https://login.microsoftonline.com` にリダイレクトされます。Microsoft アカウントを使用してログインし、要求されたアクセス許可に同意します。ブラウザーがアプリにリダイレクトし、OmniAuth によって生成されたハッシュ値を表示します。
 
 ```json
 {
