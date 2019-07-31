@@ -265,7 +265,7 @@ end
 
 ## <a name="implement-sign-out"></a>サインアウトを実装する
 
-この新しい機能をテストする前に、サインアウトする方法を追加します。`AuthController`クラスに次のアクションを追加します。
+この新しい機能をテストする前に、サインアウトする方法を追加します。`AuthController` クラスに次のアクションを追加します。
 
 ```ruby
 def signout
@@ -274,23 +274,23 @@ def signout
 end
 ```
 
-このアクションをに`./config/routes.rb`追加します。
+このアクションを `./config/routes.rb` に追加します。
 
 ```ruby
 get 'auth/signout'
 ```
 
-`signout`アクションを使用するようにビューを更新します。 開き`./app/views/layouts/application.html.erb`ます。 行`<a href="#" class="dropdown-item">Sign Out</a>`を次のように置き換えます。
+`signout` アクションを使用できるようにビューを更新します。`./app/views/layouts/application.html.erb` を開きます。`<a href="#" class="dropdown-item">Sign Out</a>` と書かれている行を次のように書き換えます。
 
 ```html
 <%= link_to "Sign Out", {:controller => :auth, :action => :signout}, :class => "dropdown-item" %>
 ```
 
-サーバーを再起動し、サインインプロセスを実行します。 ホームページに戻る必要がありますが、UI は、サインインしていることを示すように変更する必要があります。
+サーバーを再起動し、サインインし直します。Home ページに戻りますが、UI はサインインしていることを示すように変更されています。
 
 ![サインイン後のホームページのスクリーンショット](./images/add-aad-auth-01.png)
 
-右上隅にあるユーザーアバターをクリックして、[**サインアウト**] リンクにアクセスします。 [**サインアウト**] をクリックすると、セッションがリセットされ、ホームページに戻ります。
+右上隅にあるユーザーアバターをクリックして、[**サインアウト**] リンクにアクセスします。[**サインアウト**] をクリックすると、セッションがリセットされホームページに戻ります。
 
 ![[サインアウト] リンクがあるドロップダウンメニューのスクリーンショット](./images/add-aad-auth-02.png)
 
