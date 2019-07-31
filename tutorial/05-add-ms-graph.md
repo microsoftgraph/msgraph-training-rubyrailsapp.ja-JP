@@ -1,16 +1,16 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-この演習では、Microsoft Graph をアプリケーションに組み込みます。 このアプリケーションでは、 [httparty](https://github.com/jnunemaker/httparty) gem を使用して Microsoft Graph を呼び出すことになります。
+この演習では、Microsoft Graph をアプリケーションに組み込みます。 このアプリケーションでは [httparty](https://github.com/jnunemaker/httparty) を使用して Microsoft Graph を呼び出します。
 
 ## <a name="create-a-graph-helper"></a>Graph ヘルパーを作成する
 
-すべての API 呼び出しを管理するヘルパーを作成します。 CLI で次のコマンドを実行して、ヘルパーを生成します。
+すべての API 呼び出しを管理するヘルパーを作成します。CLI で次のコマンドを実行して、ヘルパーを生成します。
 
 ```Shell
 rails generate helper Graph
 ```
 
-新しく作成`./app/helpers/graph_helper.rb`したファイルを開き、コンテンツを次のように置き換えます。
+新しく作成した `./app/helpers/graph_helper.rb` ファイルを開き、内容を次のように書き換えます。
 
 ```ruby
 require 'httparty'
@@ -33,9 +33,9 @@ module GraphHelper
 end
 ```
 
-このコードの内容を確認してください。 このメソッドは、要求された`httparty`エンドポイントに対して gem を使用して、簡単な GET 要求を作成します。 このメソッドは、 `Authorization`ヘッダーにアクセストークンを送信し、渡されたすべてのクエリパラメーターを含みます。
+このコードが何をしているかを確認してください。このコードは、エンドポイントにリクエストを送信する `httparty` 製の簡単な GET リクエストを作成しています。 このコードは、`Authorization` ヘッダー内のアクセストークンを送信し、渡されたクエリパラメーターをすべて含みます。
 
-たとえば、 `make_api_call`メソッドを使用して GET を`https://graph.microsoft.com/v1.0/me?$select=displayName`実行するには、次のように呼び出すことができます。
+たとえば、`make_api_call` メソッドを使用して `https://graph.microsoft.com/v1.0/me?$select=displayName` に GET を実行するには、次のように呼び出します。
 
 ```ruby
 make_api_call `/v1.0/me`, access_token, { '$select': 'displayName' }
