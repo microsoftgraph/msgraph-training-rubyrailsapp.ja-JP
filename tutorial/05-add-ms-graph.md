@@ -45,19 +45,19 @@ make_api_call `/v1.0/me`, access_token, { '$select': 'displayName' }
 
 ## <a name="get-calendar-events-from-outlook"></a>Outlook から予定表のイベントを取得する
 
-まず、ユーザーの予定表でイベントを表示する機能を追加します。 CLI で、次のコマンドを実行して新しいコントローラーを追加します。
+まず、ユーザーの予定表でイベントを表示する機能を追加します。CLI で、次のコマンドを実行して新しいコントローラーを追加します。
 
 ```Shell
 rails generate controller Calendar index
 ```
 
-これでルートを使用できるようになりました。これを使用する`./app/view/layouts/application.html.erb`には、のナビゲーションバーにある**予定表**のリンクを更新します。 行`<a class="nav-link" href="#">Calendar</a>`を次のように置き換えます。
+これでルートを使用できるようになりました。`./app/view/layouts/application.html.erb` 内のナビゲーションバーにある **Calendar** リンクでこれを使用するように更新します。`<a class="nav-link" href="#">Calendar</a>` と書かれている行を次のように書き換えます。
 
 ```html
 <%= link_to "Calendar", {:controller => :calendar, :action => :index}, class: "nav-link#{' active' if controller.controller_name == 'calendar'}" %>
 ```
 
-Graph ヘルパーに新しいメソッドを追加して、[ユーザーのイベントを一覧表示](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_list_events)します。 を`./app/helpers/graph_helper.rb`開き、 `GraphHelper`モジュールに次のメソッドを追加します。
+[ユーザーのイベントを一覧表示](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_list_events)できるよう、Graph ヘルパーに新しいメソッドを追加します。`./app/helpers/graph_helper.rb` を開き、`GraphHelper` モジュールに次のメソッドを追加します。
 
 ```ruby
 def get_calendar_events(token)
@@ -75,14 +75,14 @@ def get_calendar_events(token)
 end
 ```
 
-このコードの内容を検討してください。
+このコードが何をしているかを考えてみてください。
 
-- 呼び出し先の URL は`/v1.0/me/events`になります。
-- パラメーター `$select`は、各イベントに対して返されるフィールドを、ビューが実際に使用するものだけに制限します。
-- パラメーター `$orderby`は、生成された日付と時刻で結果を並べ替えます。最新のアイテムが最初に表示されます。
-- 正常な応答の場合は、 `value`キーに含まれている項目の配列を返します。
+- 呼び出し先の URL は `/v1.0/me/events` になります
+- `$select` パラメーターは、各イベントに対して返されるフィールドを、ビューが実際に使用するものだけに制限します
+- `$orderby` パラメーターは、最新の項目が先頭になるように、結果を作成日時でソートします
+- 正常なレスポンスの場合、 `value` キーに項目の配列を格納して返します
 
-これで、これをテストできます。 この`./app/controllers/calendar_controller.rb`メソッドを呼び出し`index`て結果を表示するアクションを開いて更新します。
+これでテストをする事ができます。`./app/controllers/calendar_controller.rb` を開き、このメソッドを呼び出せるよう `index` アクションを更新し結果を表示します。
 
 ```ruby
 # Calendar controller
@@ -103,7 +103,7 @@ class CalendarController < ApplicationController
 end
 ```
 
-サーバーを再起動します。 サインインして、ナビゲーションバーの [**予定表**] リンクをクリックします。 すべてが動作する場合は、ユーザーの予定表にイベントの JSON ダンプが表示されます。
+サーバーを再起動します。サインインして、ナビゲーションバーの **[予定表]** リンクをクリックします。すべてが動作する場合は、ユーザーの予定表にイベントの JSON ダンプが表示されます。
 
 ## <a name="display-the-results"></a>結果を表示する
 
