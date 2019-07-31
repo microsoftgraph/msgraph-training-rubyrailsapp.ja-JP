@@ -107,9 +107,9 @@ end
 
 ## <a name="display-the-results"></a>結果を表示する
 
-これで、HTML と CSS を追加して、よりわかりやすい方法で結果を表示することができます。
+よりユーザーフレンドリーな形式で結果を表示するために HTML と CSS を追加します。
 
-を`./app/views/calendar/index.html.erb`開き、その内容を次のように置き換えます。
+`./app/views/calendar/index.html.erb` を開き、その内容を次のように書き換えます。
 
 ```html
 <h1>Calendar</h1>
@@ -135,6 +135,6 @@ end
 </table>
 ```
 
-これにより、イベントのコレクションをループ処理して、テーブル行を1つずつ追加します。 `index`の`./app/controllers/calendar_controller.rb`アクション`render json: @events`から行を削除すると、アプリがイベントの表を表示するはずです。
+これはイベントのコレクションをループ処理し、テーブル一行に各項目を 1 つずつ追加します。`./app/controllers/calendar_controller.rb` 内の `index` アクションから `render json: @events` の行を削除すると、アプリがイベントの表を表示するはずです。
 
 ![イベントの表のスクリーンショット](./images/add-msgraph-01.png)
