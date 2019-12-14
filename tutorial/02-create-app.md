@@ -23,14 +23,16 @@ rails server
 に進む前に、後で使用する gem をいくつかインストールします。
 
 - [omniauth-](https://github.com/omniauth/omniauth-oauth2)サインインおよび OAuth トークンフローを処理するための oauth2。
+- [omniauth-](https://github.com/cookpad/omniauth-rails_csrf_protection) csrf 保護を omniauth に追加するために rails_csrf_protection します。
 - Microsoft Graph に電話をかけるための[httparty](https://github.com/jnunemaker/httparty) 。
 - 電子メールの HTML 本文を処理するための[noて giri](https://github.com/sparklemotion/nokogiri) 。
-- [session_store](https://github.com/rails/activerecord-session_store)は、データベースにセッションを格納するためのものです。
+- の場合は、データベースにセッションを格納するための[session_store](https://github.com/rails/activerecord-session_store)ます。
 
 CLI で次のコマンドを実行します。
 
 ```Shell
 bundle add omniauth-oauth2
+bundle add omniauth-rails_csrf_protection
 bundle add httparty
 bundle add nokogiri
 bundle add activerecord-session_store
@@ -162,7 +164,7 @@ Rails.application.config.session_store :active_record_store, key: '_graph_app_se
 </html>
 ```
 
-このコードでは、単純なスタイル設定[](https://fontawesome.com/)のために[ブートストラップ](http://getbootstrap.com/)が追加されています。 また、ナビゲーションバーのあるグローバルレイアウトを定義します。
+このコードでは、単純なスタイル設定のために[ブートストラップ](http://getbootstrap.com/)が追加さ[れてい](https://fontawesome.com/)ます。 また、ナビゲーションバーのあるグローバルレイアウトを定義します。
 
 を開き`./app/assets/stylesheets/application.css` 、ファイルの末尾に次のように追加します。
 

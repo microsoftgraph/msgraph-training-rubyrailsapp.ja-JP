@@ -115,17 +115,7 @@ OmniAuth ミドルウェアの構成が完了したので、アプリへのサ�
 rails generate controller Auth
 ```
 
-`./app/controllers/auth_controller.rb` ファイルを開きます。 次に示すメソッドを `AuthController` クラスに追加します。
-
-```ruby
-def signin
-  redirect_to '/auth/microsoft_graph_auth'
-end
-```
-
-このメソッドはすべて、カスタム戦略を呼び出すことが期待される OmniAuth のルートにリダイレクトされます。
-
-次に、コールバックメソッドを`AuthController`クラスに追加します。 このメソッドは、OAuth フローの完了後に OmniAuth ミドルウェアによって呼び出されます。
+`./app/controllers/auth_controller.rb`ファイルを開きます。 コールバックメソッドを`AuthController`クラスに追加します。 このメソッドは、OAuth フローの完了後に OmniAuth ミドルウェアによって呼び出されます。
 
 ```ruby
 def callback
@@ -140,22 +130,20 @@ end
 ここでは、OmniAuth によって提供されるハッシュをレンダリングします。 これを使用して、サインインが機能していることを確認してから、に進みます。 テストを開始する前に、に`./config/routes.rb`ルートを追加する必要があります。
 
 ```ruby
-get 'auth/signin'
-
 # Add route for OmniAuth callback
 match '/auth/:provider/callback', to: 'auth#callback', via: [:get, :post]
 ```
 
-`signin`アクションを使用するようにビューを更新します。 開き`./app/views/layouts/application.html.erb`ます。 行`<a href="#" class="nav-link">Sign In</a>`を次のように置き換えます。
+では、サインインするためにビューを更新します。 開き`./app/views/layouts/application.html.erb`ます。 行`<a href="#" class="nav-link">Sign In</a>`を次のように置き換えます。
 
 ```html
-<%= link_to "Sign In", {:controller => :auth, :action => :signin}, :class => "nav-link" %>
+<%= link_to "Click here to sign in", "/auth/microsoft_graph_auth", method: :post, class: "nav-link" %>
 ```
 
 `./app/views/home/index.html.erb`ファイルを開き、 `<a href="#" class="btn btn-primary btn-large">Click here to sign in</a>`行を次のように置き換えます。
 
 ```html
-<%= link_to "Click here to sign in", {:controller => :auth, :action => :signin}, :class => "btn btn-primary btn-large" %>
+<%= link_to "Click here to sign in", "/auth/microsoft_graph_auth", method: :post, class: "btn btn-primary btn-large" %>
 ```
 
 サーバーを起動し、を`https://localhost:3000`参照します。 [サインイン] ボタンをクリックすると、に`https://login.microsoftonline.com`リダイレクトされます。 Microsoft アカウントを使用してログインし、要求されたアクセス許可に同意します。 ブラウザーがアプリにリダイレクトし、OmniAuth によって生成されたハッシュが表示されます。
@@ -198,7 +186,7 @@ match '/auth/:provider/callback', to: 'auth#callback', via: [:get, :post]
 
 トークンを入手できるようになったので、これをアプリに保存する方法を実装します。 これはサンプルアプリなので、わかりやすくするために、セッションに格納します。 実際のアプリケーションでは、データベースのような、より信頼性の高いセキュリティで保護されたストレージソリューションを使用します。
 
-`./app/controllers/application_controller.rb` ファイルを開きます。 ここでは、すべてのトークン管理メソッドを追加します。 他のすべてのコントローラーは`ApplicationController`クラスを継承するため、これらのメソッドを使用してトークンにアクセスできるようになります。
+`./app/controllers/application_controller.rb`ファイルを開きます。 ここでは、すべてのトークン管理メソッドを追加します。 他のすべてのコントローラーは`ApplicationController`クラスを継承するため、これらのメソッドを使用してトークンにアクセスできるようになります。
 
 次に示すメソッドを `ApplicationController` クラスに追加します。 このメソッドは、OmniAuth ハッシュをパラメーターとして取得し、関連する情報のビットを抽出して、セッションに格納します。
 
