@@ -1,0 +1,19 @@
+### YamlMime:Yaml
+ms.openlocfilehash: 0c1c8ca43e804e53fa59ab57880436d10ff5739a
+ms.sourcegitcommit: ab01e18a0d4e60d00731a5f0ae82face835a3cce
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "43613056"
+inherit_from: .rubocop_todo.yml
+AllCops:
+  Exclude:
+  - db/**/*
+  - test/**/*
+  - node_modules/**/*
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true

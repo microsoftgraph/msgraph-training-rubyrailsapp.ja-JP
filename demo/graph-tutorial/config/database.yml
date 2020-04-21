@@ -1,0 +1,29 @@
+### YamlMime:Yaml
+ms.openlocfilehash: 7a476afe8e945646482a0d124aaa4520b8b8b055
+ms.sourcegitcommit: ab01e18a0d4e60d00731a5f0ae82face835a3cce
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "43613100"
+default:
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+development:
+  <<:
+    adapter: sqlite3
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    timeout: 5000
+  database: db/development.sqlite3
+test:
+  <<:
+    adapter: sqlite3
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    timeout: 5000
+  database: db/test.sqlite3
+production:
+  <<:
+    adapter: sqlite3
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    timeout: 5000
+  database: db/production.sqlite3
