@@ -1,74 +1,60 @@
 ### YamlMime:Yaml
-ms.openlocfilehash: 176e5c554bcc42a16f908191b9a8ae0c86eafc53
-ms.sourcegitcommit: ab01e18a0d4e60d00731a5f0ae82face835a3cce
+ms.openlocfilehash: c681a33d70bfa1ea889aa7dbf439d31f09f705c1
+ms.sourcegitcommit: 85cb0bd5a71111e3f7b3af9fe02039857f9c1250
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "43613057"
-Layout/AccessModifierIndentation:
-  Exclude:
-  - bin/bundle
-Layout/ArgumentAlignment:
-  Exclude:
-  - bin/webpack
-  - bin/webpack-dev-server
-Layout/EmptyLineAfterGuardClause:
-  Exclude:
-  - bin/bundle
-Layout/EndOfLine:
-  Enabled: false
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "49661208"
 Layout/SpaceInsideArrayLiteralBrackets:
   Exclude:
   - config/environments/production.rb
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
 Metrics/AbcSize:
   Max: 18
 Metrics/CyclomaticComplexity:
-  Max: 9
+  Max: 10
 Metrics/MethodLength:
-  Max: 13
+  Max: 30
+Metrics/ModuleLength:
+  Max: 209
+Metrics/ParameterLists:
+  Max: 7
 Metrics/PerceivedComplexity:
-  Max: 9
-Style/ClassAndModuleChildren:
-  Exclude:
-  - test/channels/application_cable/connection_test.rb
-  - test/test_helper.rb
+  Max: 10
 Style/Documentation:
   Exclude:
   - spec/**/*
-  - test/**/*
+  - app/controllers/auth_controller.rb
+  - app/controllers/home_controller.rb
   - app/helpers/application_helper.rb
-  - app/mailers/application_mailer.rb
+  - app/helpers/auth_helper.rb
+  - app/helpers/calendar_helper.rb
+  - app/helpers/home_helper.rb
   - app/models/application_record.rb
   - config/application.rb
-Style/ExpandPathArguments:
-  Exclude:
-  - bin/bundle
 Style/FrozenStringLiteralComment:
   Enabled: false
-Style/IfUnlessModifier:
+Style/GlobalStdStream:
   Exclude:
-  - bin/bundle
-Style/PerlBackrefs:
+  - config/environments/production.rb
+Style/HashSyntax:
+  EnforcedStyle: hash_rockets
   Exclude:
-  - bin/bundle
-Style/RedundantBegin:
+  - Gemfile
+  - app/mailers/application_mailer.rb
+  - config/initializers/wrap_parameters.rb
+Style/RedundantFetchBlock:
   Exclude:
-  - bin/yarn
+  - config/puma.rb
 Style/SpecialGlobalVars:
   EnforcedStyle: use_perl_names
-Style/StderrPuts:
-  Exclude:
-  - bin/yarn
 Style/StringLiterals:
   Exclude:
-  - bin/bundle
-  - bin/webpack
-  - bin/webpack-dev-server
-  - bin/yarn
   - config/environments/production.rb
   - config/puma.rb
-  - test/application_system_test_case.rb
-  - test/channels/application_cable/connection_test.rb
 Style/SymbolArray:
   EnforcedStyle: brackets
 Layout/LineLength:
