@@ -1,29 +1,25 @@
-### YamlMime:Yaml
-ms.openlocfilehash: 7a476afe8e945646482a0d124aaa4520b8b8b055
-ms.sourcegitcommit: ab01e18a0d4e60d00731a5f0ae82face835a3cce
-ms.translationtype: MT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "43613100"
-default:
+# SQLite. Versions 3.8.0 and up are supported.
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+
 development:
-  <<:
-    adapter: sqlite3
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    timeout: 5000
+  <<: *default
   database: db/development.sqlite3
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
 test:
-  <<:
-    adapter: sqlite3
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    timeout: 5000
+  <<: *default
   database: db/test.sqlite3
+
 production:
-  <<:
-    adapter: sqlite3
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    timeout: 5000
+  <<: *default
   database: db/production.sqlite3
