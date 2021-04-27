@@ -1,12 +1,19 @@
+### YamlMime:Yaml
+ms.openlocfilehash: 510d48c8a3db2f6aafab7f81adbaa3fd77416586
+ms.sourcegitcommit: fd958607710a6a4b25c595bca1f289d423fb3f32
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "52058137"
 inherit_from: .rubocop_todo.yml
-
 AllCops:
   NewCops: enable
   Exclude:
-    - 'bin/**/*'
-    - 'db/**/*'
-    - 'test/**/*'
-    - 'node_modules/**/*'
-
+  - bin/**/*
+  - db/**/*
+  - test/**/*
+  - node_modules/**/*
 Metrics/ModuleLength:
-  CountAsOne: ['array', 'hash']
+  CountAsOne:
+  - array
+  - hash
