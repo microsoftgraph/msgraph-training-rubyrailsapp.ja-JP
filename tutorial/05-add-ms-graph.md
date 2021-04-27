@@ -1,16 +1,16 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-この演習では、Microsoft Graph をアプリケーションに組み込む必要があります。 このアプリケーションでは [、httparty gem](https://github.com/jnunemaker/httparty) を使用して Microsoft Graph を呼び出します。
+この演習では、アプリケーションに Microsoft Graphを組み込む必要があります。 このアプリケーションでは[、httparty](https://github.com/jnunemaker/httparty) gem を使用して Microsoft Graph。
 
-## <a name="create-a-graph-helper"></a>Graph ヘルパーを作成する
+## <a name="create-a-graph-helper"></a>カスタム ヘルパー Graphする
 
-1. すべての API 呼び出しを管理するヘルパーを作成します。 CLI で次のコマンドを実行して、ヘルパーを生成します。
+1. すべての API 呼び出しを管理するヘルパーを作成します。 CLI で次のコマンドを実行してヘルパーを生成します。
 
     ```Shell
     rails generate helper Graph
     ```
 
-1. **./app/helpers/graph_helper.rb** を開き、内容を次の内容に置き換えてください。
+1. **./app/helpers/graph_helper.rb** を開き、内容を次に置き換えてください。
 
     ```ruby
     require 'httparty'
@@ -44,15 +44,15 @@
     end
     ```
 
-このコードの動作を確認してください。 要求されたエンドポイントに対して、gem を介して単純 `httparty` な GET 要求または POST 要求を作成します。 ヘッダーにアクセス トークンを送信し、渡されるクエリ `Authorization` パラメーターを含む。
+このコードの動作を確認してください。 Gem を介して要求されたエンドポイントに対して単純な GET 要求または POST `httparty` 要求を行います。 ヘッダーにアクセス トークンを送信 `Authorization` し、渡されるクエリ パラメーターが含まれます。
 
-たとえば、このメソッドを `make_api_call` 使用して GET を実行するには、 `https://graph.microsoft.com/v1.0/me?$select=displayName` 次のように呼び出します。
+たとえば、メソッドを使用して GET を実行 `make_api_call` するには、 `https://graph.microsoft.com/v1.0/me?$select=displayName` 次のように呼び出します。
 
 ```ruby
-make_api_call 'GET', '/v1.0/me', access_token, { '$select': 'displayName' }
+make_api_call 'GET', '/v1.0/me', access_token, {}, { '$select': 'displayName' }
 ```
 
-アプリに Microsoft Graph のより多くの機能を実装する場合は、後でこの機能をビルドします。
+後で、アプリに Microsoft の機能を実装するGraphを構築します。
 
 ## <a name="get-calendar-events-from-outlook"></a>Outlook からカレンダー イベントを取得する
 
@@ -62,31 +62,31 @@ make_api_call 'GET', '/v1.0/me', access_token, { '$select': 'displayName' }
     rails generate controller Calendar index new
     ```
 
-1. **./config/routes.rb に新しいルートを追加します**。
+1. 新しいルートを **./config/routes.rb に追加します**。
 
     ```ruby
     get 'calendar', :to => 'calendar#index'
     ```
 
-1. Graph ヘルパーに新しいメソッドを追加して、 [予定表ビューを取得します](https://docs.microsoft.com/graph/api/calendar-list-calendarview?view=graph-rest-1.0)。 **./app/helpers/graph_helper.rb** を開き、次のメソッドをモジュールに追加 `GraphHelper` します。
+1. カレンダー ビューを取得するには、Graphヘルパーに[新しいメソッドを追加します](https://docs.microsoft.com/graph/api/calendar-list-calendarview?view=graph-rest-1.0)。 **./app/helpers/graph_helper.rb** を開き、次のメソッドをモジュールに追加 `GraphHelper` します。
 
     :::code language="ruby" source="../demo/graph-tutorial/app/helpers/graph_helper.rb" id="GetCalendarSnippet":::
 
     このコードの実行内容を考えましょう。
 
     - 呼び出される URL は `/v1.0/me/calendarview` です。
-        - ヘッダーにより、結果の開始時刻と終了時刻がユーザーのタイム ゾーン `Prefer: outlook.timezone` に調整されます。
-        - The `startDateTime` and parameters set the start and end of the `endDateTime` view.
-        - この `$select` パラメーターは、各イベントで返されるフィールドを、ビューが実際に使用するフィールドに限定します。
-        - パラメーター `$orderby` は、開始時刻で結果を並べ替える。
-        - この `$top` パラメーターは、結果を 50 イベントに制限します。
-    - 正常に応答するには、キーに含まれるアイテムの配列を返 `value` します。
+        - ヘッダーによって、結果の開始時刻と終了時刻がユーザーのタイム ゾーン `Prefer: outlook.timezone` に合わせて調整されます。
+        - and `startDateTime` パラメーター `endDateTime` は、ビューの開始と終了を設定します。
+        - パラメーター `$select` は、各イベントに返されるフィールドを、ビューが実際に使用するフィールドに制限します。
+        - パラメーター `$orderby` は、開始時刻によって結果を並べ替える。
+        - パラメーター `$top` は、結果を 50 イベントに制限します。
+    - 応答が成功した場合、キーに含まれるアイテムの配列を返 `value` します。
 
-1. Graph ヘルパーに新しいメソッドを追加して、Windows タイム ゾーン名に基づいて [IANA](https://www.iana.org/time-zones) タイム ゾーン識別子を参照します。 Microsoft Graph はタイム ゾーンを Windows タイム ゾーン名として返し、Ruby **DateTime** クラスは IANA タイム ゾーン識別子を必要とするために必要です。
+1. 新しいメソッドを Graphヘルパーに追加して、タイム ゾーン名に基づいて[IANA](https://www.iana.org/time-zones)タイム Windows参照します。 これは、Microsoft Graphがタイム ゾーン名としてWindows返し、Ruby **DateTime** クラスには IANA タイム ゾーン識別子が必要なので、これが必要です。
 
     :::code language="ruby" source="../demo/graph-tutorial/app/helpers/graph_helper.rb" id="ZoneMappingSnippet":::
 
-1. **./app/controllers/calendar_controller.rb** を開き、その内容全体を次の内容に置き換えてください。
+1. **./app/controllers/calendar_controller.rb** を開き、その内容全体を次に置き換えてください。
 
     ```ruby
     # Calendar controller
@@ -114,19 +114,19 @@ make_api_call 'GET', '/v1.0/me', access_token, { '$select': 'displayName' }
     end
     ```
 
-1. サーバーを再起動します。 サインインし、ナビゲーション バー **の [予定表** ] リンクをクリックします。 すべてが正常に機能していれば、ユーザーのカレンダーにイベントの JSON ダンプが表示されます。
+1. サーバーを再起動します。 サインインして、ナビゲーション バー **の [予定表** ] リンクをクリックします。 すべてが正常に機能していれば、ユーザーのカレンダーにイベントの JSON ダンプが表示されます。
 
 ## <a name="display-the-results"></a>結果の表示
 
-HTML を追加して、結果をユーザー に分け親しまれる方法で表示できます。
+HTML を追加して、結果をユーザーフレンドリーに表示できます。
 
-1. **./app/views/calendar/index.html.erb** を開き、その内容を次の内容に置き換えます。
+1. **./app/views/calendar/index.html.erb** を開き、その内容を次に置き換えます。
 
     :::code language="html" source="../demo/graph-tutorial/app/views/calendar/index.html.erb" id="CalendarSnippet":::
 
     これにより、イベントのコレクションがループされ、各イベントにテーブル行が追加されます。
 
-1. `render json: @events` `index` **./app/controllers/calendar_controller.rb** のアクションから行を削除します。
+1. `render json: @events` `index` **./app/controllers/calendar_controller.rb のアクションから行を削除します**。
 
 1. ページを更新すると、アプリはイベントのテーブルをレンダリングする必要があります。
 

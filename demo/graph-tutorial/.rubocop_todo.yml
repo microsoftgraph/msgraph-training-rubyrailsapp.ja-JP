@@ -1,32 +1,50 @@
 ### YamlMime:Yaml
-ms.openlocfilehash: c681a33d70bfa1ea889aa7dbf439d31f09f705c1
-ms.sourcegitcommit: 85cb0bd5a71111e3f7b3af9fe02039857f9c1250
+ms.openlocfilehash: 11675002007d3817544f74e9441f415b3c8853af
+ms.sourcegitcommit: fd958607710a6a4b25c595bca1f289d423fb3f32
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "49661208"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "52058144"
+Layout/ArgumentAlignment:
+  Exclude:
+  - bin/webpack
+  - bin/webpack-dev-server
+Layout/DotPosition:
+  Exclude:
+  - bin/yarn
+Layout/EmptyLineAfterGuardClause:
+  Exclude:
+  - bin/bundle
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+  - db/schema.rb
+Layout/MultilineMethodCallIndentation:
+  Exclude:
+  - bin/yarn
+Layout/MultilineOperationIndentation:
+  Exclude:
+  - bin/bundle
 Layout/SpaceInsideArrayLiteralBrackets:
   Exclude:
   - config/environments/production.rb
-Layout/SpaceInsideBlockBraces:
-  EnforcedStyle: space
-Layout/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: space
-Metrics/AbcSize:
-  Max: 18
 Metrics/CyclomaticComplexity:
-  Max: 10
+  Max: 9
 Metrics/MethodLength:
   Max: 30
 Metrics/ModuleLength:
-  Max: 209
+  Max: 212
 Metrics/ParameterLists:
   Max: 7
 Metrics/PerceivedComplexity:
-  Max: 10
+  Max: 9
+Style/ClassAndModuleChildren:
+  Exclude:
+  - test/channels/application_cable/connection_test.rb
+  - test/test_helper.rb
 Style/Documentation:
   Exclude:
   - spec/**/*
+  - test/**/*
   - app/controllers/auth_controller.rb
   - app/controllers/home_controller.rb
   - app/helpers/application_helper.rb
@@ -35,6 +53,10 @@ Style/Documentation:
   - app/helpers/home_helper.rb
   - app/models/application_record.rb
   - config/application.rb
+  - db/migrate/20210427151603_add_sessions_table.rb
+Style/ExpandPathArguments:
+  Exclude:
+  - bin/bundle
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/GlobalStdStream:
@@ -46,16 +68,29 @@ Style/HashSyntax:
   - Gemfile
   - app/mailers/application_mailer.rb
   - config/initializers/wrap_parameters.rb
+Style/IfUnlessModifier:
+  Exclude:
+  - bin/bundle
+Style/InverseMethods:
+  Exclude:
+  - bin/yarn
+Style/NumericLiterals:
+  Exclude:
+  - db/schema.rb
+Style/PerlBackrefs:
+  Exclude:
+  - bin/bundle
 Style/RedundantFetchBlock:
   Exclude:
   - config/puma.rb
 Style/SpecialGlobalVars:
   EnforcedStyle: use_perl_names
-Style/StringLiterals:
+Style/StderrPuts:
   Exclude:
-  - config/environments/production.rb
-  - config/puma.rb
+  - bin/yarn
+Style/StringLiterals:
+  Enabled: false
 Style/SymbolArray:
   EnforcedStyle: brackets
 Layout/LineLength:
-  Max: 190
+  Max: 198

@@ -1,10 +1,10 @@
 ### YamlMime:Yaml
-ms.openlocfilehash: 0cca8cee75ac6aec27cd7bf31ab9fb4624b3688e
-ms.sourcegitcommit: 85cb0bd5a71111e3f7b3af9fe02039857f9c1250
+ms.openlocfilehash: 510d48c8a3db2f6aafab7f81adbaa3fd77416586
+ms.sourcegitcommit: fd958607710a6a4b25c595bca1f289d423fb3f32
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "49661201"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "52058137"
 inherit_from: .rubocop_todo.yml
 AllCops:
   NewCops: enable

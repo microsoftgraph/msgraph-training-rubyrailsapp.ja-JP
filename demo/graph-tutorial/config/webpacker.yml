@@ -1,19 +1,18 @@
 ### YamlMime:Yaml
-ms.openlocfilehash: 3deb84251a078e6eb83cd1fc3ba901ada93f46d7
-ms.sourcegitcommit: ab01e18a0d4e60d00731a5f0ae82face835a3cce
+ms.openlocfilehash: 29103063c2210df1e945ae56cfed46d090f1b8dc
+ms.sourcegitcommit: fd958607710a6a4b25c595bca1f289d423fb3f32
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "43613069"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "52058172"
 default:
   source_path: app/javascript
   source_entry_path: packs
   public_root_path: public
   public_output_path: packs
   cache_path: tmp/cache/webpacker
-  check_yarn_integrity: false
   webpack_compile_output: true
-  resolved_paths: []
+  additional_paths: []
   cache_manifest: false
   extract_css: false
   static_assets_extensions:
@@ -50,9 +49,8 @@ development:
     public_root_path: public
     public_output_path: packs
     cache_path: tmp/cache/webpacker
-    check_yarn_integrity: false
     webpack_compile_output: true
-    resolved_paths: []
+    additional_paths: []
     cache_manifest: false
     extract_css: false
     static_assets_extensions:
@@ -83,7 +81,6 @@ development:
     - .jpeg
     - .jpg
   compile: true
-  check_yarn_integrity: true
   dev_server:
     https: false
     host: localhost
@@ -108,9 +105,8 @@ test:
     public_root_path: public
     public_output_path: packs
     cache_path: tmp/cache/webpacker
-    check_yarn_integrity: false
     webpack_compile_output: true
-    resolved_paths: []
+    additional_paths: []
     cache_manifest: false
     extract_css: false
     static_assets_extensions:
@@ -149,9 +145,8 @@ production:
     public_root_path: public
     public_output_path: packs
     cache_path: tmp/cache/webpacker
-    check_yarn_integrity: false
     webpack_compile_output: true
-    resolved_paths: []
+    additional_paths: []
     cache_manifest: false
     extract_css: false
     static_assets_extensions:
